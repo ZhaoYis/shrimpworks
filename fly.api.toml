@@ -1,0 +1,37 @@
+# Fly.io 配置 - API 服务
+# 使用方法: fly launch --config fly.api.toml
+
+app = "shrimpworks-api"
+primary_region = "hkg"
+
+[build]
+  dockerfile = "docker/Dockerfile.api"
+
+[env]
+  API_PORT = "8080"
+  API_PREFIX = "api/v1"
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.http_checks]]
+    interval = "10s"
+    grace_period = "5s"
+    method = "get"
+    path = "/health"
+    protocol = "http"
+    timeout = "2s"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 512

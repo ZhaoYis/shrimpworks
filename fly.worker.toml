@@ -1,0 +1,16 @@
+# Fly.io 配置 - Worker 服务
+# 使用方法: fly launch --config fly.worker.toml
+
+app = "shrimpworks-worker"
+primary_region = "hkg"
+
+[build]
+  dockerfile = "docker/Dockerfile.worker"
+
+[env]
+  NODE_ENV = "production"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 512

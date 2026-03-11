@@ -1,0 +1,39 @@
+{
+  "name": "shrimpworks",
+  "version": "0.0.1",
+  "private": true,
+  "description": "OpenClaw ShrimpWorks - Enterprise SaaS Factory Platform",
+  "scripts": {
+    "dev": "pnpm run --parallel dev",
+    "dev:api": "pnpm --filter api dev",
+    "dev:web": "pnpm --filter web dev",
+    "dev:worker": "pnpm --filter worker dev",
+    "build": "prisma generate && pnpm run --parallel build",
+    "build:api": "pnpm --filter api build",
+    "build:web": "pnpm --filter web build",
+    "build:worker": "pnpm --filter worker build",
+    "postinstall": "prisma generate",
+    "lint": "pnpm run --parallel lint",
+    "test": "pnpm run --parallel test",
+    "test:coverage": "pnpm run --parallel test:coverage",
+    "clean": "pnpm run --parallel clean",
+    "db:migrate": "prisma migrate dev",
+    "db:generate": "prisma generate",
+    "db:studio": "prisma studio",
+    "db:push": "prisma db push",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "prisma": "^5.10.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.10.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install:*)",
+      "Bash(pnpm db:generate:*)",
+      "Bash(npx tsc:*)",
+      "Bash(timeout 10 pnpm dev:api:*)",
+      "Bash(docker ps:*)",
+      "Bash(docker run:*)",
+      "Bash(docker pull:*)",
+      "Bash(lsof:*)",
+      "Bash(psql:*)",
+      "Bash(docker info:*)",
+      "Bash(pnpm build:api:*)",
+      "Bash(docker compose:*)",
+      "Bash(pnpm:*)"
+    ]
+  }
+}

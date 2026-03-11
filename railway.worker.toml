@@ -1,0 +1,11 @@
+# Railway 配置 - Worker 服务
+[build]
+builder = "nixpacks"
+buildCommand = "pnpm install && pnpm build:worker"
+
+[deploy]
+startCommand = "cd apps/worker && node dist/main"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+# Worker 不需要暴露端口

@@ -1,0 +1,23 @@
+# Railway 配置 - API 服务
+[build]
+builder = "nixpacks"
+buildCommand = "pnpm install && pnpm build:api"
+
+[deploy]
+startCommand = "cd apps/api && node dist/main"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+[[services]]
+internal_port = 3001
+protocol = "tcp"
+
+[[services.ports]]
+handlers = ["http"]
+port = 80
+
+[[services.ports]]
+handlers = ["tls", "http"]
+port = 443
