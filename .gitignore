@@ -47,3 +47,4 @@ temp/
 
 # Docker volumes (local)
 .docker-data/
+.vercel
